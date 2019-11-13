@@ -3,7 +3,7 @@ import React from 'react';
 import './index.css';
 
 export const Index = () => {
-  console.log('testing...');
+  console.log('testing again...');
   return (
     <div className="app">
       <header className="flex">
