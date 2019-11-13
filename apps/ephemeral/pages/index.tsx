@@ -3,11 +3,7 @@ import React from 'react';
 import './index.css';
 
 export const Index = () => {
-  /*
-   * Replace the elements below with your own.
-   *
-   * Note: The corresponding styles are in the ./${fileName}.${style} file.
-   */
+  console.log('testing...');
   return (
     <div className="app">
       <header className="flex">
