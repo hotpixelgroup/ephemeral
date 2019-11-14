@@ -13,4 +13,9 @@ describe('Index', () => {
     const { getByText } = render(<Index />);
     expect(getByText('Welcome to ephemeral!')).toBeTruthy();
   });
+
+  it('Resources & Tools should render on the page', () => {
+    const { getByText } = render(<Index />);
+    expect(getByText('Resources & Tools')).toBeTruthy();
+  });
 });
