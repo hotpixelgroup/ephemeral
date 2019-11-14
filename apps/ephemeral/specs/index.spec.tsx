@@ -11,6 +11,6 @@ describe('Index', () => {
 
   it('should have a greeting as the title', () => {
     const { getByText } = render(<Index />);
-    expect(getByText('Welcome to Derpsville!')).toBeTruthy();
+    expect(getByText('Welcome to ephemeral!')).toBeTruthy();
   });
 });
