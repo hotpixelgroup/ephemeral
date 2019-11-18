@@ -1,74 +1,61 @@
-# Ephemeral
+# Testing with Ephemeral Environments
 
-This project was generated using [Nx](https://nx.dev).
+This project was created to illustrate what an **ephemeral testing environment** is and how it is different from traditional development, quality assurance/stage, and production environments. In short, ephemeral environments live for as long as it takes to execute the tasks they are responsible and then they die. Eternal environments (like DEV, QA, and PROD) live for the life of the application development and support cycle.
 
-🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
+![](https://i.imgur.com/nd37ZlZ.png)
 
-## Adding capabilities to your workspace
+Ephemeral testing environments are isolated containers that are initialized—"spun up"—based on a specific action to execute specific tasks. After the task is complete, the environment is destroyed. Since we are dealing with testing only here, what we want to do is create an ephemeral environment to run all tests in our sample app to ensure our new code doesn't break any existing functionality. In order to do that, we need **Node 12.x** installed in the ephemeral environment. We will use **Ubuntu** for the OS.
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+In order for our tests to run properly, we need to install the dependencies of our application which are managed via NPM. Given that our ephemeral environment will support Node globally, we can simply run
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+`npm install`
+ 
+ and once complete, run 
+ 
+ `npm test`
 
-Below are some plugins which you can add to your workspace:
+This will run all of the tests in our application to determine whether or not our code can be merged. If any test fails, the pull request will not be mergeable. Developers will be able to see what specific test(s) failed and why. If all the tests pass and the branch is up-to-date, the pull request can be merged.
 
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
 
-## Generate an application
+## Our Sample Workflow
 
-Run `nx g @nrwl/react:app my-app` to generate an application.
 
-> You can use any of the plugins above to generate applications as well.
+![](https://i.imgur.com/4LJa9YN.png)
 
-When using Nx, you can create multiple applications and libraries in the same workspace.
+![](https://i.imgur.com/lQlfjls.png)
 
-## Generate a library
+![](https://i.imgur.com/4umumF0.png)
 
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
+<br>
+<br>
 
-> You can also use any of the plugins above to generate libraries as well.
+# Developer Insights
 
-Libraries are sharable across libraries and applications. They can be imported from `@ephemeral/mylib`.
+There are a variety of insights that are exposed to developers through this process:
 
-## Development server
+1. See what tests ran
+2. See what tests failed
+3. See what tests passed
+4. See if their application code needs to be updated or their test code needs to be updated (or both)
+5. See whether their code is the culprit or whether a dependency failed to install (or something else entirely)
+6. Determine better pre- and post-PR workflow
 
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+<br>
 
-## Code scaffolding
+## <span style="color:darkred">Failure Example </span>
 
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
+![](https://i.imgur.com/2N3jZMu.png)
 
-## Build
+![](https://i.imgur.com/q4pokAO.png)
 
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+<br>
+<br>
+<br>
+<br>
 
-## Running unit tests
+## <span style="color:darkgreen">Success Example</span>
 
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
+![](https://i.imgur.com/JNnLghL.png)
 
-Run `nx affected:test` to execute the unit tests affected by a change.
+![](https://i.imgur.com/QuLy69S.png)
 
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev) to learn more.
