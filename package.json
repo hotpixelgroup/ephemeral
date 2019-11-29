@@ -22,8 +22,13 @@
     "format:check": "nx format:check",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
-    "help": "nx help",
-    "precommit": "lint-staged && npm run test"
+    "help": "nx help"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format:write && npm run test",
+      "pre-push": "npm run format:write && npm run test"
+    }
   },
   "lint-staged": {
     "*.tsx, *.js": [
