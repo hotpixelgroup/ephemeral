@@ -22,7 +22,14 @@
     "format:check": "nx format:check",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "precommit": "lint-staged && npm run test"
+  },
+  "lint-staged": {
+    "*.tsx, *.js": [
+      "npm run format:write",
+      "git add"
+    ]
   },
   "private": true,
   "dependencies": {
@@ -36,33 +43,35 @@
     "@zeit/next-stylus": "1.0.1"
   },
   "devDependencies": {
-    "@nrwl/workspace": "8.7.1",
-    "@types/node": "~8.9.4",
-    "dotenv": "6.2.0",
-    "ts-node": "~7.0.0",
-    "tslint": "~5.11.0",
-    "eslint": "6.1.0",
-    "typescript": "~3.4.5",
-    "prettier": "1.18.2",
-    "@nrwl/next": "8.7.1",
-    "@nrwl/jest": "8.7.1",
-    "jest": "24.1.0",
-    "@types/jest": "24.0.9",
-    "ts-jest": "24.0.0",
-    "cypress": "3.4.1",
     "@nrwl/cypress": "8.7.1",
-    "@nrwl/web": "8.7.1",
+    "@nrwl/eslint-plugin-nx": "8.7.1",
+    "@nrwl/jest": "8.7.1",
+    "@nrwl/next": "8.7.1",
     "@nrwl/react": "8.7.1",
+    "@nrwl/web": "8.7.1",
+    "@nrwl/workspace": "8.7.1",
+    "@testing-library/react": "9.3.0",
+    "@types/jest": "24.0.9",
+    "@types/node": "~8.9.4",
     "@types/react": "16.9.6",
     "@types/react-dom": "16.9.2",
-    "@testing-library/react": "9.3.0",
-    "@nrwl/eslint-plugin-nx": "8.7.1",
-    "@typescript-eslint/parser": "2.3.2",
     "@typescript-eslint/eslint-plugin": "2.3.2",
+    "@typescript-eslint/parser": "2.3.2",
+    "cypress": "3.4.1",
+    "dotenv": "6.2.0",
+    "eslint": "6.1.0",
     "eslint-config-prettier": "6.0.0",
     "eslint-plugin-import": "2.18.2",
     "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-react": "7.16.0",
-    "eslint-plugin-react-hooks": "2.1.2"
+    "eslint-plugin-react-hooks": "2.1.2",
+    "husky": "^3.1.0",
+    "jest": "24.1.0",
+    "lint-staged": "^9.5.0",
+    "prettier": "^1.18.2",
+    "ts-jest": "24.0.0",
+    "ts-node": "~7.0.0",
+    "tslint": "~5.11.0",
+    "typescript": "~3.4.5"
   }
 }
