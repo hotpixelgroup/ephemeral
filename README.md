@@ -17,12 +17,16 @@ In order for our tests to run properly, we need to install the dependencies of o
 This will run all of the tests in our application to determine whether or not our code can be merged. If any test fails, the pull request will not be mergeable. Developers will be able to see what specific test(s) failed and why. If all the tests pass and the branch is up-to-date, the pull request can be merged.
 
 
-## Our Sample Workflow
+## A Sample Workflow
 
 
 ![](https://i.imgur.com/4LJa9YN.png)
 
+<br>
+
 ![](https://i.imgur.com/lQlfjls.png)
+
+<br>
 
 ![](https://i.imgur.com/4umumF0.png)
 
@@ -42,7 +46,10 @@ There are a variety of insights that are exposed to developers through this proc
 
 <br>
 
-## <span style="color:darkred">Failure Example </span>
+----
+
+
+# <span style="color:darkred">Failure Example </span>
 
 ![](https://i.imgur.com/2N3jZMu.png)
 
@@ -56,6 +63,8 @@ There are a variety of insights that are exposed to developers through this proc
 ## <span style="color:darkgreen">Success Example</span>
 
 ![](https://i.imgur.com/JNnLghL.png)
+
+<br>
 
 ![](https://i.imgur.com/QuLy69S.png)
 
